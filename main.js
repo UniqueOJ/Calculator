@@ -1,5 +1,6 @@
 let buffer = "0"
 let runningTotal = 0;
+let previousOperator;
 const screen = document.querySelector(".screen");
 
 function buttonClick(value) {
@@ -30,6 +31,8 @@ if (runningTotal === 0){
 } else{
     flushOperation(intBuffer);
 }
+previousOperator = value;
+buffer = 0;
     
 }
 
@@ -72,4 +75,4 @@ function rerender(){
     screen.innerText = buffer;
 }
 
-init();u 
+init();
