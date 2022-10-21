@@ -1,5 +1,6 @@
 let buffer = "0"
-const screen =document.querySelector(".screen");
+let runningTotal = 0;
+const screen = document.querySelector(".screen");
 
 function buttonClick(value) {
    if (isNaN(parseInt(value))) {
@@ -16,6 +17,20 @@ function handleNumber (number){
 } else {
         buffer+= number;
     }
+}
+
+function handleMaths(value) {
+    if (buffer === 0)
+    // do nothing
+    return;
+
+    const intBuffer = parseInt(intBuffer);
+if (runningTotal === 0){
+    runningTotal = intBuffer;
+} else{
+    flushOperation(intBuffer);
+}
+    
 }
 
 function handleSymbol (symbol){
@@ -40,7 +55,7 @@ function handleSymbol (symbol){
     case "-":
     case "+":
     case "×":
-        console.log("math symbol")
+       handleMaths(symbol);
         break;
  }
 }
@@ -57,4 +72,4 @@ function rerender(){
     screen.innerText = buffer;
 }
 
-init();
+init();u 
